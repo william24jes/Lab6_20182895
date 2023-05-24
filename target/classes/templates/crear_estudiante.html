@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+        <title>Nuevo Ingreso</title>
+    </head>
+    <body>
+        <main>
+            <div class="container px-4 py-5">
+                <h1 class="pb-2 mb-3 border-bottom">Nuevo Ingreso</h1>
+                <form method="post" th:action="@{'/estudiante/guardar'}"  class="mt-2">
+
+
+
+                    <div class="mb-3">
+                        <label for="nombres" class="form-label">Nombre</label>
+                        <input name="nombres" type="text" class="form-control" id="nombres">
+                    </div>
+                    <div class="mb-3">
+                        <label for="apellidos" class="form-label">Apellido</label>
+                        <input name="apellidos" type="text" class="form-control" id="apellidos">
+                    </div>
+                    <div class="mb-3">
+                        <label for="dni" class="form-label">Apellido</label>
+                        <input name="dni" type="text" class="form-control" id="dni">
+                    </div>
+                    <div class="mb-3">
+                        <label for="edad" class="form-label">Apellido</label>
+                        <input name="edad" type="number" class="form-control" id="edad">
+                    </div>
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">Email</label>
+                        <input name="correo" type="text" class="form-control" id="correo">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <div class="input-group">
+                            <input name="password" type="password" class="form-control" id="password">
+                            <button type="button" class="btn btn-outline-secondary" onclick="togglePassword()">Mostrar</button>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="activo" class="form-label">activo</label>
+                        <input name="activo" type="number" class="form-control" id="activo">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="rolid" class="form-label">rolid</label>
+                        <input name="rolid" type="number" class="form-control" id="rolid">
+                    </div>
+
+                    <a th:href="@{'/estudiante/lista'}" class="btn btn-danger">Cancelar</a>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+
+                </form>
+            </div>
+        </main>
+        <script>
+            function togglePassword() {
+                var passwordInput = document.getElementById("password");
+                if (passwordInput.type === "password") {
+                    passwordInput.type = "text";
+                } else {
+                    passwordInput.type = "password";
+                }
+            }
+        </script>
+        <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    </body>
+</html>
